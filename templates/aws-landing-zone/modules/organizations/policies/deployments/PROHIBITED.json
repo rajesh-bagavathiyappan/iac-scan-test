@@ -1,0 +1,46 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+	  {
+      "Sid": "GRAUDITBUCKETPROHIBITED",
+      "Effect": "Deny",
+      "Action": [
+        "s3:DeleteBucket",
+        "s3:PutEncryptionConfiguration",
+        "s3:PutBucketPolicy",
+        "s3:PutLifecycleConfiguration"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "ForAnyValue:ArnNotLike": {
+        "aws:PrincipalArn": [
+          "<admin_user_arn>"
+        ]
+        }
+      }
+	  },
+	  {
+      "Sid": "GRCONFIGPROHIBITED",
+      "Effect": "Deny",
+      "Action": [
+        "config:PutConfigRule",
+        "config:DeleteConfigRule",
+        "config:DeleteEvaluationResults",
+        "config:DeleteConfigurationAggregator",
+        "config:PutConfigurationAggregator"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "ForAnyValue:ArnNotLike": {
+        "aws:PrincipalArn": [
+          "<admin_user_arn>"
+        ]
+        }
+      }
+	  }
+	]
+}

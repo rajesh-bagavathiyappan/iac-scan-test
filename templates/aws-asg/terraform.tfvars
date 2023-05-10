@@ -1,0 +1,9 @@
+cluster_name            = "webservers-dev"
+image_id                = "ami-0c293f3f676ec4f90"
+instance_type           = "t2.nano"
+min_size                = 2
+max_size                = 5
+desired_capacity        = 2
+enable_new_ami_creation = false
+instance_id             = "NA"
+availability_zone       = ["us-east-1a","us-east-1b","us-east-1c"]

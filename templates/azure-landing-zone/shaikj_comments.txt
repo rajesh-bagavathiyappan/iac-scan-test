@@ -1,0 +1,61 @@
+1. In module-naming-convention , if we give special characters like '-' or '_' in environment_short_name & landing_Zone_short_name, terraform should be  smart enough to remove it from name for below resources. 
+	    In storage account name only lower letter and number should be allowed 
+	    In Keyvault name should only contain  letter, number & '-'. 
+	    In recovery_services_vault name should only contain  letter, number & '-'. 
+	    In api_management  name should only contain  letter, number & '-'. 
+	    In sql_server  name should only contain  letter, number & '-'. 
+	    Also add random string of 4 characters (letters or numbers) for all above resource name at the end. 
+
+2. In module-subnet , NSG rule outbound 443 rule is not needed, and since u r using the same subnet to apim also add 3443 inbound port. Default rule should look like below. 
+	  default = [
+	    {
+	      name                       = "inboundrule443",
+	      priority                   = 100,
+	      direction                  = "Inbound",
+	      access                     = "Allow",
+	      source_port_range          = "*",
+	      destination_port_range     = 443,
+	      source_address_prefix      = "*",
+	      destination_address_prefix = "*"
+	    },
+	    {
+	      name                       = "Inboundrule3443",
+	      priority                   = 101,
+	      direction                  = "Inbound",
+	      access                     = "Allow",
+	      source_port_range          = "*",
+	      destination_port_range     = 443,
+	      source_address_prefix      = "*",
+	      destination_address_prefix = "*"
+	    }
+	  ]
+	}
+	
+3.  In module-monitor resource "azurerm_network_watcher_flow_log" "flowlog" needs name defined. 
+
+4. for module-vnet  resource "azurerm_network_ddos_protection_plan" "ddos" is not needed. remove it.. it's cost very high.. 
+
+5.  for module-sql-db set default varibles to set SQL db size. 
+    edition                          = "Standard"
+    requested_service_objective_name =  "S3"
+
+6.  Also add .ignorelist and exclude .terraform  and  .terraform.lock.hcl files from repo. 
+
+Below are comments on Policies. 
+
+For Azure policy allowedlocations, the location are hardcoded not parameterized. What if we want to allowed location to be west Europe etc .
+
+Also for allowed location policy, I see if it is not allowed location it would just audit, isn't it supposed to deny Resource deployment…? .
+
+For az policy namingconvention the name pattern is hard coded not parameterized, what if we want to have different name.
+
+for few azure policies I see metadata category is demo, when we rollout, we don't want it to be categorized as demo. Also it's hardcoded, we want to modify it if or when needed.
+
+###################################
+
+Removed network watcher and flow logs
+
+
+###################################
+
+add AZ Policy Network Watcher flow logs should have traffic analytics enabled '/providers/Microsoft.Authorization/policyDefinitions/2f080164-9f4d-497e-9db6-416dc9f7b48a'

@@ -1,0 +1,10 @@
+.terraform
+.terraform.lock.hcl
+**/.terraform/*
+*/.terraform.lock.hcl
+workspace-landingzone/.terraform/
+workspace-landingzone/.terraform.lock.hcl
+workspace-landingzone/terraform.tfstate
+workspace-landingzone/terraform.tfstate.*
+workspace-landingzone/.terraform.tfstate.lock.info
+**/.terraform/**

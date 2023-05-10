@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cloudmatos-demoblog",
+  "private_key_id": "904b756a20fdb8db620206d8c862b2fea09ec564",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCrA4rBqZzxQLAv\nYvAMLVXIptPjdQpYZJTu6oYTKfTUMAt0rBXzD5a6EHdkvtv4RCAfJKVt3sO1SKvN\nZ4XeuRtqWVG7ayaLFjkepBoEerBjSWVOtnYPg5NXwMfKT0EOcjO0fMdCpby2FrHU\n2bWEbNmEcjzAheOn6dg/HvS+ZSYt0p/S92afNoJeVAqTF0RU3PjbKwF+L/6lTrlp\nPZlmJB38Q89jCsAll06KPieJ26+QAmU4wCUj+8N63n0iY8de9QUlnf+GDoJJVqe0\nZ/DcfLXc4NFW7EgQTJTrJ0+3RyTWzVzntqbtBmj8H6CGaEaz4vN1/427h6oUAtec\n+PXQgrCFAgMBAAECggEAC8gTsCHiSRCe0rTrOruI1GkB4gK3Mr3DMO6BTCKw1kl1\nEJWmcXdad/kYcJ1hhCoVWG/q4bXeH8gg5ebC50QzalE6+0F3h0+BoeXGURauvjhZ\nPWH+ojT7WqlSWlK5dahSfZW3GJVYeeb4W2SgR75EAgbovo66z1+h4T9dtxw61B84\nxNuCwAfuwNqbVt71M2XntboTNSzkXEo34mAxOUMtL32yTNuK5AqHpHysQ063BDAI\nMDmqjfJ/sT3Y/U15B/Nv6j73D3aOAOrQyeGpGA6ASxyDCRXoLuKjyxUFIOqIj/cJ\nUhcKAHbZlWHUafwtGsMb1LHEDNw0PcQN92tBr9ujYQKBgQDS6HwxgSc4cgPGssdj\ncZA61yxMDfB2DbeDOyEbbxzkaxhokAMENJ2kP9JHG0T3U3gnCHLbjjbOmsMGyo1i\nCMSCD8HgzVt0a8rKP3czbIW0JYZTbS+kvDKqKCpdElGqnbFlCs07s/HPvabLXYUc\nLzmtgEJtgHaJpzx5l/E5wx43zQKBgQDPk4tjoycAZTvmH8yOtaZ99zFm8529B3vC\nTv4uKZTy/ptlUZfhKPiMlDoNOdvuj308wbBMRZe6/+KiyY0e5DI4fH5SLkKXgYhd\nySvEFlhlszm2AxXBRyCDL85FmZTVbMkdDQeT9i7ZEy/CD/ZwYD9wCtqf06HDJ8Eb\n/n9AfyuzmQKBgQDBpjESCzIFw7nv4QruJcF2JUdI9auJ2YJb/hih5d2zZRneOAxs\n+hqcSvU50LH8HSm/PSSoruVnwfW78JLsJny3ptwvGp8UQDzMgoViNAx3odS6GRCb\nwykJzyNGnaFadLwCuG5EmS43vjy9kTq87CebRJ65iDBOp70BMB+PF7ZRKQKBgEwi\nzA+huh51A0FnDHqTuhud3WrrlEHPSt98ZdK8wbtXE9xXzyNxCalWfOx4+mhIDSGJ\n0YZISFz4mkInNzHLdXgugY7XFOnJQyFTNlBX+dhjoplWDFa2JgC4OiphKKwXmLSl\nINBujcRlOzEs9bFGPD52XLYew8h2/mesMzSO8JKRAoGBAISSnQHW/ghEB5vZgVx1\nsWcFS37AbHpahVlNzpjE7xf0g4K5VDN4tSUIbPYG/ZqQCE3bv7AN5337m6nZ9vaA\nGICommREYIcLYAG/upF9Kh5Wzh06UlyH5/CILcq9r6Y3AtE103mR7k3gd0RxQ4IA\nkOfAxruorFhPtnWNx8niEdeD\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloudmatos-demoblog@cloudmatos-demoblog.iam.gserviceaccount.com",
+  "client_id": "101830795478244984349",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloudmatos-demoblog%40cloudmatos-demoblog.iam.gserviceaccount.com"
+}

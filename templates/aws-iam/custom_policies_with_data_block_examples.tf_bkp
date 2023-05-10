@@ -1,0 +1,273 @@
+#####################################################################################
+# Examples to create groups and associated policies using different resource definition blocks
+#####################################################################################
+
+
+#####################################################################################
+# IAM group for users with custom_Ebeanstalkviewer access
+#####################################################################################
+# module "iam_group_with_custom_policies_eb" {
+#   source   = "../modules/iam-group-with-policies"
+#   name     = "EB_viewer"
+
+#   group_users = ["user7", "user9"]
+
+#   custom_group_policies = [
+#     {
+#       name   = "Custom_EB"
+#       policy = data.aws_iam_policy_document.custom_eb.json
+#     },
+#   ]
+# }
+
+# #####################################################################################
+# # IAM group for users with custom_Ec2viewer access
+# #####################################################################################
+
+# module "iam_group_with_custom_policies_ec2" {
+#   source   = "../modules/iam-group-with-policies"
+#   name     = "EC2_viewer"
+
+#   group_users = ["user8", "user9"]
+
+#   custom_group_policies = [
+#     {
+#       name   = "Custom_EC2viewer"
+#       policy = data.aws_iam_policy_document.sample.json
+#     },
+#   ]
+# }
+
+
+
+######################
+# IAM policy (sample)
+######################
+data "aws_iam_policy_document" "sample" {
+  statement {
+    actions = [
+      "s3:ListBuckets",
+    ]
+
+    resources = ["*"]
+  }
+}
+
+######################
+# IAM policy (EC2-Viewer)
+######################
+data "aws_iam_policy_document" "custom_ec2" {
+  statement {
+    actions = [
+      "ec2:DescribeFastLaunchImages",
+      "ec2:DescribeInstances",
+      "ec2:GetIpamResourceCidrs",
+      "ec2:GetIpamPoolCidrs",
+      "ec2:GetEbsEncryptionByDefault",
+      "ec2:DescribeCoipPools",
+      "ec2:DescribeSnapshots",
+      "ec2:DescribeLocalGatewayVirtualInterfaces",
+      "ec2:DescribeNetworkInsightsPaths",
+      "ec2:DescribeHostReservationOfferings",
+      "ec2:DescribeTrafficMirrorSessions",
+      "ec2:DescribeExportImageTasks",
+      "ec2:DescribeTrafficMirrorFilters",
+      "ec2:DescribeVolumeStatus",
+      "ec2:DescribeLocalGatewayRouteTableVpcAssociations",
+      "ec2:DescribeScheduledInstanceAvailability",
+      "ec2:DescribeVolumes",
+      "ec2:GetEbsDefaultKmsKeyId",
+      "ec2:DescribeFpgaImageAttribute",
+      "ec2:DescribeExportTasks",
+      "ec2:DescribeTransitGatewayMulticastDomains",
+      "ec2:DescribeManagedPrefixLists",
+      "ec2:DescribeKeyPairs",
+      "ec2:DescribeReservedInstancesListings",
+      "ec2:DescribeCapacityReservations",
+      "ec2:DescribeClientVpnRoutes",
+      "ec2:DescribeSpotFleetRequestHistory",
+      "ec2:DescribeVpcClassicLinkDnsSupport",
+      "ec2:DescribeSnapshotAttribute",
+      "ec2:DescribeIdFormat",
+      "ec2:DescribeFastSnapshotRestores",
+      "ec2:DescribeInstanceEventWindows",
+      "ec2:DescribeVolumeAttribute",
+      "ec2:DescribeImportSnapshotTasks",
+      "ec2:DescribeLocalGatewayVirtualInterfaceGroups",
+      "ec2:GetPasswordData",
+      "ec2:DescribeVpcEndpointServicePermissions",
+      "ec2:DescribeTransitGatewayAttachments",
+      "ec2:GetAssociatedIpv6PoolCidrs",
+      "ec2:DescribeScheduledInstances",
+      "ec2:SearchLocalGatewayRoutes",
+      "ec2:DescribeTrunkInterfaceAssociations",
+      "ec2:GetSpotPlacementScores",
+      "ec2:DescribeImageAttribute",
+      "ec2:DescribeIpv6Pools",
+      "ec2:DescribeFleets",
+      "ec2:DescribeReservedInstancesModifications",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeMovingAddresses",
+      "ec2:DescribeCapacityReservationFleets",
+      "ec2:DescribeFleetHistory",
+      "ec2:DescribePrincipalIdFormat",
+      "ec2:DescribeFlowLogs",
+      "ec2:DescribeRegions",
+      "ec2:GetNetworkInsightsAccessScopeAnalysisFindings",
+      "ec2:DescribeTransitGateways",
+      "ec2:DescribeVpcEndpointServices",
+      "ec2:DescribeSpotInstanceRequests",
+      "ec2:DescribeAddressesAttribute",
+      "ec2:DescribeVpcAttribute",
+      "ec2:ExportClientVpnClientCertificateRevocationList",
+      "ec2:DescribeInstanceTypeOfferings",
+      "ec2:DescribeTrafficMirrorTargets",
+      "ec2:DescribeTransitGatewayRouteTables",
+      "ec2:DescribeAvailabilityZones",
+      "ec2:DescribeNetworkInterfaceAttribute",
+      "ec2:DescribeLocalGatewayRouteTables",
+      "ec2:DescribeVpcEndpointConnections",
+      "ec2:SearchTransitGatewayMulticastGroups",
+      "ec2:DescribeInstanceStatus",
+      "ec2:GetIpamPoolAllocations",
+      "ec2:DescribeHostReservations",
+      "ec2:DescribeBundleTasks",
+      "ec2:DescribeIdentityIdFormat",
+      "ec2:DescribeClassicLinkInstances",
+      "ec2:DescribeTransitGatewayConnects",
+      "ec2:DescribeIpamPools",
+      "ec2:DescribeVpcEndpointConnectionNotifications",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeStoreImageTasks",
+      "ec2:GetIpamAddressHistory",
+      "ec2:DescribeFpgaImages",
+      "ec2:DescribeVpcs",
+      "ec2:DescribeIpams",
+      "ec2:GetManagedPrefixListAssociations",
+      "ec2:DescribeStaleSecurityGroups",
+      "ec2:DescribeAggregateIdFormat",
+      "ec2:ExportClientVpnClientConfiguration",
+      "ec2:DescribeVolumesModifications",
+      "ec2:GetHostReservationPurchasePreview",
+      "ec2:DescribeClientVpnConnections",
+      "ec2:DescribeTransitGatewayConnectPeers",
+      "ec2:DescribeByoipCidrs",
+      "ec2:DescribeNetworkInsightsAnalyses",
+      "ec2:GetConsoleScreenshot",
+      "ec2:DescribePlacementGroups",
+      "ec2:DescribeInternetGateways",
+      "ec2:SearchTransitGatewayRoutes",
+      "ec2:GetLaunchTemplateData",
+      "ec2:GetSerialConsoleAccessStatus",
+      "ec2:DescribeSpotDatafeedSubscription",
+      "ec2:DescribeAccountAttributes",
+      "ec2:DescribeNetworkInterfacePermissions",
+      "ec2:DescribeReservedInstances",
+      "ec2:DescribeNetworkAcls",
+      "ec2:DescribeRouteTables",
+      "ec2:DescribeClientVpnEndpoints",
+      "ec2:DescribeEgressOnlyInternetGateways",
+      "ec2:GetManagedPrefixListEntries",
+      "ec2:DescribeLaunchTemplates",
+      "ec2:DescribeVpnConnections",
+      "ec2:DescribeVpcPeeringConnections",
+      "ec2:DescribeReservedInstancesOfferings",
+      "ec2:GetTransitGatewayAttachmentPropagations",
+      "ec2:DescribeFleetInstances",
+      "ec2:GetGroupsForCapacityReservation",
+      "ec2:GetNetworkInsightsAccessScopeContent",
+      "ec2:DescribeClientVpnTargetNetworks",
+      "ec2:DescribeSnapshotTierStatus",
+      "ec2:DescribeVpcEndpointServiceConfigurations",
+      "ec2:DescribePrefixLists",
+      "ec2:GetReservedInstancesExchangeQuote",
+      "ec2:DescribeInstanceCreditSpecifications",
+      "ec2:DescribeVpcClassicLink",
+      "ec2:DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations",
+      "ec2:GetInstanceTypesFromInstanceRequirements",
+      "ec2:DescribeSecurityGroupRules",
+      "ec2:GetTransitGatewayRouteTablePropagations",
+      "ec2:DescribeInstanceTypes",
+      "ec2:DescribeVpcEndpoints",
+      "ec2:DescribeElasticGpus",
+      "ec2:DescribeVpnGateways",
+      "ec2:ListSnapshotsInRecycleBin",
+      "ec2:DescribeTransitGatewayPeeringAttachments",
+      "ec2:GetDefaultCreditSpecification",
+      "ec2:DescribeAddresses",
+      "ec2:DescribeIpamScopes",
+      "ec2:DescribeInstanceAttribute",
+      "ec2:GetCapacityReservationUsage",
+      "ec2:DescribeDhcpOptions",
+      "ec2:GetSubnetCidrReservations",
+      "ec2:GetConsoleOutput",
+      "ec2:DescribeSpotPriceHistory",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:GetFlowLogsIntegrationTemplate",
+      "ec2:DescribeNetworkInsightsAccessScopeAnalyses",
+      "ec2:DescribeCarrierGateways",
+      "ec2:GetTransitGatewayRouteTableAssociations",
+      "ec2:GetVpnConnectionDeviceSampleConfiguration",
+      "ec2:DescribeIamInstanceProfileAssociations",
+      "ec2:DescribeNetworkInsightsAccessScopes",
+      "ec2:DescribeTags",
+      "ec2:GetCoipPoolUsage",
+      "ec2:DescribeReplaceRootVolumeTasks",
+      "ec2:DescribeLaunchTemplateVersions",
+      "ec2:GetVpnConnectionDeviceTypes",
+      "ec2:DescribeImportImageTasks",
+      "ec2:GetTransitGatewayPrefixListReferences",
+      "ec2:DescribeNatGateways",
+      "ec2:DescribeCustomerGateways",
+      "ec2:DescribeInstanceEventNotificationAttributes",
+      "ec2:DescribeLocalGateways",
+      "ec2:GetAssociatedEnclaveCertificateIamRoles",
+      "ec2:DescribeSpotFleetRequests",
+      "ec2:DescribeHosts",
+      "ec2:DescribeImages",
+      "ec2:DescribeSpotFleetInstances",
+      "ec2:DescribeSecurityGroupReferences",
+      "ec2:DescribePublicIpv4Pools",
+      "ec2:DescribeClientVpnAuthorizationRules",
+      "ec2:DescribeTransitGatewayVpcAttachments",
+      "ec2:GetTransitGatewayMulticastDomainAssociations",
+      "ec2:DescribeConversionTasks"
+    ]
+
+    resources = ["*"]
+  }
+}
+
+
+######################
+# IAM policy (Beanstalk)
+######################
+data "aws_iam_policy_document" "custom_eb" {
+  statement {
+    actions = [
+      "elasticbeanstalk:DescribePlatformVersion",
+      "elasticbeanstalk:DescribeAccountAttributes",
+      "elasticbeanstalk:DescribeEnvironmentManagedActionHistory",
+      "elasticbeanstalk:ValidateConfigurationSettings",
+      "elasticbeanstalk:DescribeConfigurationSettings",
+      "elasticbeanstalk:CheckDNSAvailability",
+      "elasticbeanstalk:ListAvailableSolutionStacks",
+      "elasticbeanstalk:ListTagsForResource",
+      "elasticbeanstalk:ListPlatformVersions",
+      "elasticbeanstalk:DescribeEnvironmentResources",
+      "elasticbeanstalk:ListPlatformBranches",
+      "elasticbeanstalk:DescribeEnvironmentManagedActions",
+      "elasticbeanstalk:RequestEnvironmentInfo",
+      "elasticbeanstalk:DescribeEnvironments",
+      "elasticbeanstalk:DescribeEvents",
+      "elasticbeanstalk:DescribeConfigurationOptions",
+      "elasticbeanstalk:DescribeInstancesHealth",
+      "elasticbeanstalk:DescribeApplicationVersions",
+      "elasticbeanstalk:DescribeEnvironmentHealth",
+      "elasticbeanstalk:DescribeApplications",
+      "elasticbeanstalk:RetrieveEnvironmentInfo"
+    ]
+
+    resources = ["*"]
+  }
+}
